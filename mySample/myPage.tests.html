@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"> 
+<head>	
+	<title>My Page - Tests</title>  
+	<meta http-equiv="Content-type" content="application/xhtml+xml"/> 
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/> 
+	<meta content="en" name="language"/> 
+	<meta content="en" http-equiv="Content-Language"/> 
+    <meta http-equiv="X-UA-Compatible" content="IE=8"/> 
+    <meta http-equiv="X-XSS-Protection" content="0"/> 
+    <link rel="stylesheet" href="css/qunit.css" type="text/css" media="screen" charset="utf-8"/> 
+</head> 
+ 
+<body>
+    <h1 id="qunit-header">My Page - Tests</h1>
+
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+    <div id="qunit-fixture">
+		<!-- The #qunit-fixture element can be used to provide and manipulate test markup, 
+		     and it's content will be automatically reset after each test -->
+
+		 <!-- some markup for testing purposes -->
+		<input type="button" value="ClickMe" id="clickMeBtn" />
+		<div id="result">No result yet...</div>
+		
+	</div>
+    
+    <script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-latest.js"> </script> 
+    <script type="text/javascript" charset="utf-8" src="js/lib/qunit.js" ></script> 	
+    <script type="text/javascript" charset="utf-8" src="js/myFunctions.js"></script>
+
+    <script type="text/javascript">       
+		$(document).ready(function(){
+
+			QUnit.log = function(result, message) {
+				if (window.console && window.console.log) {
+		           window.console.log(result + ' :: ' + message);
+		        }	
+			};
+
+			QUnit.testStart(function(){
+				$("#clickMeBtn").click(function(){
+					showResult();
+				});
+			});
+		});			
+    </script>
+	
+	<script type="text/javascript" src="js/tests/myFunctions.tests.js"></script>    
+</body> 
+</html>
